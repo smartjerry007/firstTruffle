@@ -1,8 +1,8 @@
-const ConvertLib = artifacts.require("ConvertLib");
-const MetaCoin = artifacts.require("MetaCoin");
+
+const Ballot = artifacts.require("Ballot");
 
 module.exports = function(deployer) {
-  deployer.deploy(ConvertLib);
-  deployer.link(ConvertLib, MetaCoin);
-  deployer.deploy(MetaCoin);
+  const first = web3.utils.asciiToHex("hoil");
+  const second = web3.utils.asciiToHex("gangdo");
+  deployer.deploy(Ballot, [first, second], {from : "0x103718865d815AC87d1982B9480312b455a87935"});
 };
